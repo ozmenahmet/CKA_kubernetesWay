@@ -1,2 +1,4 @@
 kubectl get nodes
 kubectl cordon node01
+
+kubectl run my-busybox --image=busybox:1.31.1 --command sleep 4800 
