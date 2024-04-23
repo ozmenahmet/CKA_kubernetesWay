@@ -3,7 +3,8 @@ kind: Pod
 metadata:
   name: my-busybox
 spec:
-  nodeName: node01 # even if SchedulindDisabled on node01, with this spec it will be scheduled on node01(KillCodda v1.29) ??
+  #nodeName: node01 # even if SchedulindDisabled on node01, with this spec it will be scheduled on node01(KillCodda v1.29) 
+  # read the warning (https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename) 
   containers:
   - name: c-my-busybox
     image: busybox:1.31.1
