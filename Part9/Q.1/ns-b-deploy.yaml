@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  name: service
+  namespace: project-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service
+  template:
+    metadata:
+      labels:
+        app: service
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: project-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}

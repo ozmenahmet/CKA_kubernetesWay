@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    tier: application
+  name: application
+  namespace: project-c
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: application
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        tier: application
+    spec:
+      containers:
+      - image: praqma/network-multitool #you can use telnet 3306 to project-a pod/db
+        name: nginx
+        resources: {}
