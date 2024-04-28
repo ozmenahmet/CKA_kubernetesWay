@@ -6,13 +6,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      tier: db
+      app: db
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        tier: db
+        app: db
     spec:
       containers:
       - image: mysql:5.6

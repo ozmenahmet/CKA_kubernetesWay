@@ -14,6 +14,6 @@ spec:
     - namespaceSelector:
         matchLabels:
           namespace: project-b
-    - podSelector:
+      podSelector:
         matchLabels:
           app: service
