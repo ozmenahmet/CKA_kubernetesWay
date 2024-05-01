@@ -1,0 +1,11 @@
+ssh node01
+sed -i 's@ExecStart=/usr/bin/kubelet@ExecStart=/usr/bin/locale/kubelet@g' /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+systemctl daemon-reload
+systemctl restart kubelet
+
+#it must be failed
+systemctl status kubelet
+exit
+
+# to not to deploy to controlplane add taint
+k taint nodes controlplane HDD=SSD:NoSchedule
