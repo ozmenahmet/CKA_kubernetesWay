@@ -1,0 +1,9 @@
+//on killercoda.com for 2 nodes playground are use below commands
+k drain node01 --ignore-daemonsets --delete-local-data
+k delete node node01
+
+# kubeadm token create --print-join-command
+# if there are errors about already existed files or used port, remove the files(rm -rf) and stop the kubelet(systemctl stop kubelet)
+
+# kubeadm join 172.30 xxxxx command
+# kubectl run web --image=nginx => pod will be scheduled automatically on node01
