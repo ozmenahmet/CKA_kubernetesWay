@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    tier: service
+  name: service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        tier: service
+    spec:
+      containers:
+      - image: praqma/network-multitool
+        name: nginx
+        ports:
+        - containerPort: 8080
+          name: serv
