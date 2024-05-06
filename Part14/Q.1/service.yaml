@@ -20,4 +20,6 @@ spec:
         name: nginx
         ports:
         - containerPort: 8080
-          name: serv
+          name: service8080
+        - containerPort: 80
+          name: service80
