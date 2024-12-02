@@ -1,0 +1,7 @@
+#imperative commands
+kubectl create ns production
+kubectl create deploy --image=nginx:1.24 --replicas=2 -n production frontend
+
+#with dry-run=client
+kubectl create ns production --dry-run=client -o yaml >> ns.yaml
+kubectl create deploy --image=nginx:1.24 --replicas=2 -n production frontend --dry-run=client -o yaml >> deployment.yaml
