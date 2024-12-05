@@ -20,7 +20,7 @@ metadata:
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 3Gi
@@ -35,15 +35,15 @@ metadata:
   name: task-pv-pod
 spec:
   volumes:
-  - name: task-pv-storage
-    persistentVolumeClaim:
-    claimName: task-pv-claimm
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: task-pv-claimm
   containers:
-  - name: task-pv-container
-    image: nginx
-    ports:
-    - containerPort: 80
-      name: "http-server"
-    volumeMounts:
-    - mountPath: "/usr/share/nginx/html"
-      name: task-pv-storage
+    - name: task-pv-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: task-pv-storage
