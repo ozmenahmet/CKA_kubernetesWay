@@ -1,3 +1,12 @@
+kubectl cordon node01
+
+
+
+
+Note: Even if SchedulingDisabled on node01, with the "nodeName: node01" definiton under spec it will be scheduled on node01.
+
+
+
 apiVersion: v1
 kind: Pod
 metadata:
