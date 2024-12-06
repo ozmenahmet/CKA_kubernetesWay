@@ -1,0 +1,10 @@
+#before the query add taint to controlplane node
+k taint nodes controlplane HDD=SSD:NoSchedule
+
+#query taints
+k get nodes -o jsonpath='{.items[*].spec.taints}'
+or
+k get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.taints[*]}{"\n"}{end}'
+
+#remove taint
+k taint node controlplane HDD-

@@ -1,8 +1,0 @@
-#to add taint
-k taint nodes controlplane HDD=SSD:NoSchedule
-
-#to query taints
-k get nodes -o jsonpath='{.items[*].spec.taints}'
-
-#to remove taint
-k taint node controlplane HDD-
