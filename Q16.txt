@@ -1,0 +1,14 @@
+//on killercoda.com for 2 nodes playground use below commands
+k drain node01 --ignore-daemonsets --force
+k delete node node01
+
+# kubeadm token create --print-join-command
+# if there are errors about already existed files or used port, remove the files that are specified in the error with "rm -rf" command
+        * [ERROR FileAvailable--etc-kubernetes-kubelet.conf]: /etc/kubernetes/kubelet.conf already exists
+        * [ERROR Port-10250]: Port 10250 is in use
+        * [ERROR FileAvailable--etc-kubernetes-pki-ca.crt]: /etc/kubernetes/pki/ca.crt already exists)
+# and stop the kubelet(systemctl stop kubelet)
+
+# ssh node01
+# kubeadm join 172.30 xxxxx command
+# kubectl run web --image=nginx => pod will be scheduled automatically on node01
