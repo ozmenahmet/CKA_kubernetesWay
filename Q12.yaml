@@ -15,3 +15,27 @@ spec:
   - hostPath:
       path: /var/volume
     name: hostpath-volume
+
+#Note: When using the above yaml file, a request must be made with the curl command before adding the sidecar. 
+#Otherwise, an error will be received when sidecar is added because the *.log file is not created.
+#If the following yaml file is used, no error will be received when sidecar is added because the relevant log file 
+#will be created in the volume after deployment.
+
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#  name: multi-pod
+#spec:
+#  containers:
+#  - name: web-pod
+#    image: nginx:latest    
+#    ports:
+#      - containerPort: 80
+#    command: ["sh","-c",'while [ 1 ] ; do echo -en "$(date)" >> /var/log/nginx/test.log ; sleep 1; done']
+#    volumeMounts:
+#    - mountPath: /var/log/nginx
+#      name: hostpath-volume
+#  volumes:
+#  - hostPath:
+#      path: /var/volume
+#    name: hostpath-volume
