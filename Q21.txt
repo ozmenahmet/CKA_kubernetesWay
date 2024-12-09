@@ -1,0 +1,8 @@
+#to setup the environment use these commands
+mkdir /root/certificates && \
+mkdir /root/backup && \
+cp /etc/kubernetes/pki/etcd/server.crt /root/certificates/server.crt && \
+cp /etc/kubernetes/pki/etcd/server.key /root/certificates/server.key && \
+cp /etc/kubernetes/pki/etcd/ca.crt /root/certificates/ca.crt
+
+# you can copy new.db to old.db, create some objects and then use the old one to restore

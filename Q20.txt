@@ -1,0 +1,2 @@
+k run --image=nginx backend
+k run --image=nginx web
